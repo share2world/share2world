@@ -16,11 +16,28 @@
 // });
 
 
-Route::get('/', function () {
-    $name = "Mrzrb";
-    $content = "Think about It, You can do it";
-    return view('welcome',compact('name','content'));
-});
+Route::get('/', 'HomeController@index');
 
 Route::get('contact','ContactController@index');
 
+
+Route::get('test',function () {
+    return view('admin/test');
+});
+
+Route::get('login',function(){
+    return view('home.login');
+});
+
+
+
+Route::group(['namespace' => 'Admin'], function() {
+    // if(!Auth::check()){
+    //     return redirect('/login');
+    // }
+    Route::get('tt','AdminController@index');
+});
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
