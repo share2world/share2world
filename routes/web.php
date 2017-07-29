@@ -18,23 +18,13 @@
 
 Route::get('/', 'HomeController@index');
 
-Route::get('contact','ContactController@index');
-
-
-Route::get('test',function () {
-    return view('admin/test');
-});
 
 Route::get('login',function(){
     return view('home.login');
 });
 
 
-
 Route::group(['namespace' => 'Admin'], function() {
-    // if(!Auth::check()){
-    //     return redirect('/login');
-    // }
     Route::get('tt','AdminController@index');
 });
 
