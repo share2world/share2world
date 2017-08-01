@@ -16,7 +16,7 @@
 // });
 
 
-Route::get('/', 'HomeController@index');
+Route::get('/', 'TaskController@getTask');
 
 
 Route::get('login',function(){
@@ -31,3 +31,13 @@ Route::group(['namespace' => 'Admin'], function() {
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+
+
+
+Route::group(['prefix' => 'task'], function() {
+    Route::get('/','TaskController@getTask');
+    Route::post('/','TaskController@postTask');
+    Route::get('complete/{id}','TaskController@changeStatus');
+    Route::get('delete/{id}','TaskController@deleteTask');
+});
+

@@ -10,6 +10,10 @@
 
     <title>{{ config('app.name', 'Laravel') }}</title>
 
+    <script src="//cdn.bootcss.com/jquery/2.2.2/jquery.min.js"></script>
+    <script src="//cdn.bootcss.com/vue/2.4.2/vue.js"></script>  
+    <script src="//cdn.bootcss.com/bootstrap/3.3.6/js/bootstrap.js"></script>
+
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
 </head>
@@ -41,6 +45,9 @@
 
                     <!-- Right Side Of Navbar -->
                     <ul class="nav navbar-nav navbar-right">
+                        <li>
+                            <a type="button" class="btn" data-toggle="modal" data-target="#exampleModal" data-whatever="@mdo">新任务</a>
+                        </li>
                         <!-- Authentication Links -->
                         @if (Auth::guest())
                             <li><a href="{{ route('login') }}">Login</a></li>
@@ -66,6 +73,8 @@
                                 </ul>
                             </li>
                         @endif
+                        
+                      
                     </ul>
                 </div>
             </div>
@@ -74,8 +83,15 @@
         @yield('content')
     </div>
 
+
+    
+
     <!-- Scripts -->
-    <script src="{{ asset('js/app.js') }}"></script>
+     {{--  <script src="{{ asset('js/app.js') }}"></script>         --}}
+    {{--  <script src="//cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.js"></script>   --}}
     <script src="//cdn.bootcss.com/canvas-nest.js/1.0.1/canvas-nest.js"></script>
+
 </body>
+
+    @yield('js')
 </html>
