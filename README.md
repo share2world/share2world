@@ -8,3 +8,7 @@
 ## Todo
 
 > add Email notification feature
+
+
+## Update list
+> 2017-8-2 fix the bug that can't send the mail of resetpassworld

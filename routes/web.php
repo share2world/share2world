@@ -32,8 +32,6 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 
-
-
 Route::group(['prefix' => 'task'], function() {
     Route::get('/','TaskController@getTask');
     Route::post('/','TaskController@postTask');
@@ -42,3 +40,7 @@ Route::group(['prefix' => 'task'], function() {
     Route::post('comment','TaskController@postComment');
 });
 
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
