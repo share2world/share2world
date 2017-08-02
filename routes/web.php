@@ -39,5 +39,6 @@ Route::group(['prefix' => 'task'], function() {
     Route::post('/','TaskController@postTask');
     Route::get('complete/{id}','TaskController@changeStatus');
     Route::get('delete/{id}','TaskController@deleteTask');
+    Route::post('comment','TaskController@postComment');
 });
 
