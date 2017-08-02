@@ -57,6 +57,12 @@ class TaskController extends Controller
 
     public function deleteTask( Request $req, $id) 
     {
+        $task = Task::find($id);
+
+        if($task->uid !== $req->user()->id){
+            return "Error : You can't delete other user's task";
+        }
+
         $comment = Task::find($id)->comments;
         foreach($comment as $c){
             $c->delete();
